@@ -1,0 +1,499 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;/* Adjust based on the font used in Figma */
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 134px;/* As per Figma */
+    padding: 24px 160px;/* Top: 24px, Right: 160px, Bottom: 24px, Left: 160px */
+    background-color: #FAF3DD;/* Background color from Figma */
+    position: sticky;/* Optional: makes the navbar sticky at the top */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo styling */
+.logo img {
+    height: 150px;/* Adjust based on the actual logo size in Figma */
+}
+
+/* Links container */
+.links {
+    display: flex;
+    align-items: center;
+    gap: 30px;/* Space between each link */
+}
+
+/* Link styling based on Figma details */
+.links a {
+    text-decoration: none;/* Remove underline */
+    color: #ee964b;/* Color from Figma */
+    font-family: 'Plus Jakarta Sans', sans-serif;/* Set font family */
+    font-weight: 700;/* Font weight */
+    font-size: 32px;/* Font size */
+    line-height: 40px;/* Line height */
+    letter-spacing: 0px;/* No letter spacing */
+    width: 143px;/* Set width */
+    height: 40px;/* Set height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover effect for links */
+.links a:hover {
+    color: #FF6200;/* Orange color for hover, matching the buttons in the screenshot */
+}
+
+
+
+
+/*hero */
+  
+  body {
+    font-family: 'Poppins', sans-serif; /* The font looks like Poppins in the screenshot */
+  }
+  
+  /* Hero section styling */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1A3C5E; /* Dark blue background */
+    padding: 60px 20px; /* Adjust padding for spacing */
+    text-align: center;
+    min-height: 500px; /* Ensure the hero section has enough height */
+  }
+  
+  /* Sub-links styling */
+  .sub-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .sub-links a {
+    text-decoration: none;
+    color: #FFFFFF; /* White color for sub-links */
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .sub-links .dot {
+    color: #FFFFFF;
+    font-size: 14px;
+  }
+  
+  /* Hero heading styling */
+  .hero-heading {
+    font-size: 48px; /* Large font size for the heading */
+    font-weight: 700;
+    color: #FFFFFF; /* White color for the first part */
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  
+  .hero-heading span {
+    color: #FF6200; /* Orange color for "we can help!" */
+  }
+  
+  /* Trust signals styling */
+  .trust-signals {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .trust-item {
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .trust-item .checkbox {
+    margin-right: 8px;
+    color: #FFFFFF; /* White checkbox */
+  }
+  
+  /* Search bar styling */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 300px; /* Adjust width as needed */
+    margin-bottom: 30px;
+  }
+  
+  .search-bar .search-icon {
+    margin-right: 10px;
+    color: #1A3C5E; /* Dark blue icon */
+  }
+  
+  .search-bar input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #1A3C5E;
+    background: transparent;
+    width: 100%;
+  }
+  
+  .search-bar input::placeholder {
+    color: #1A3C5E;
+  }
+  
+  /* Icons bar styling */
+  .icons-bar {
+    display: flex;
+    align-items: center;
+    background-color: #FAF3DD; /* Light beige background */
+    border-radius: 25px;
+    padding: 10px 20px;
+    gap: 20px;
+  }
+  
+  .icons-bar .arrow-icon {
+    color: #1A3C5E;
+    font-size: 20px;
+  }
+  
+  .icons-bar .service-icon {
+    font-size: 24px;
+  }
+  /*end of hero styling*/
+  
+  /* Service providers section styling */
+.service-providers {
+    background-color: #FFFFFF; /* White background for the section */
+    padding: 60px 20px; /* Padding for spacing */
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Container for centering content */
+  .container {
+    max-width: 1200px; /* Constrain the content width */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between cards */
+  }
+  
+  /* Provider card styling */
+  .provider-card {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 400px; /* Card width */
+    overflow: hidden; /* Ensure rounded corners apply to the image */
+  }
+  
+  /* Card image styling */
+  .card-image {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Adjust based on the screenshot */
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image fills the space */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .card-image .pro-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #FF6200; /* Orange badge */
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 15px;
+  }
+  
+  .card-image .heart-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #1A3C5E; /* Dark blue heart */
+  }
+  
+  /* Card body styling */
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-body h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A3C5E; /* Dark blue for the name */
+    margin-bottom: 5px;
+  }
+  
+  .card-body .profession {
+    font-size: 14px;
+    color: #1A3C5E;
+    margin-bottom: 10px;
+  }
+  
+  .card-body .location {
+    font-size: 14px;
+    color: #666666; /* Gray for location */
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .card-body .location .location-icon {
+    margin-right: 5px;
+  }
+  
+  .card-body .rating {
+    font-size: 14px;
+    color: #FF6200; /* Orange for stars */
+    margin-bottom: 10px;
+  }
+  
+  .card-body .description {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 20px;
+  }
+  
+  /* Card footer styling */
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-footer .price {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1A3C5E;
+  }
+  
+  .card-footer .contact-btn {
+    background-color: #FF6200; /* Orange button */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .card-footer .contact-btn:hover {
+    background-color: #E05500; /* Slightly darker orange on hover */
+  }
+
+
+
+
+  /* How it works section styling */
+.how-it-works {
+    background-color: #FFFFFF; /* White background as per Figma */
+    padding: 60px 20px; /* Padding for spacing */
+    display: flex;
+    justify-content: center;
+    min-height: 932px; /* As per Figma */
+  }
+  
+  /* Container for centering content */
+  .container {
+    max-width: 1200px; /* Constrain the content width */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px; /* Space between image and text columns */
+  }
+  
+  /* Image column styling */
+  .image-column {
+    position: relative;
+    flex: 1;
+    max-width: 500px; /* Adjust based on the screenshot */
+  }
+  
+  .image-column img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  
+  .image-column .checkmark-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: #1A3C5E; /* Dark blue background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-column .checkmark-badge::before {
+    content: '✔';
+    color: #FFFFFF;
+    font-size: 40px;
+  }
+  
+  /* Text column styling */
+  .text-column {
+    flex: 1;
+    max-width: 600px; /* Adjust based on the screenshot */
+  }
+  
+  .section-heading {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1A3C5E; /* Dark blue for the heading */
+    margin-bottom: 40px;
+  }
+  
+  .section-heading span {
+    color: #FF6200; /* Orange for "Proxiserve" */
+  }
+  
+  /* Step styling */
+  .step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+  
+  .step-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FF6200; /* Orange for the step number */
+    margin-right: 15px;
+  }
+  
+  .step-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A3C5E; /* Dark blue for the step title */
+    margin-bottom: 10px;
+  }
+  
+  .step-content p {
+    font-size: 14px;
+    color: #666666; /* Gray for the placeholder text */
+    line-height: 1.5;
+  }
+
+
+
+  /* Guarantee section styling */
+.guarantee-section {
+    background-color: #1A3C5E; /* Dark blue background */
+    border-radius: 24px; /* As per Figma */
+    padding: 64px 180px; /* Top: 64px, Right: 180px, Bottom: 64px, Left: 180px */
+    display: flex;
+    justify-content: center;
+    min-height: 880px; /* As per Figma */
+  }
+  
+  /* Container for centering content */
+  .container {
+    max-width: 1200px; /* Constrain the content width */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px; /* As per Figma */
+  }
+  
+  /* Left column styling */
+  .left-column {
+    flex: 1;
+    max-width: 500px; /* Adjust based on the screenshot */
+  }
+  
+  /* Right column styling */
+  .right-column {
+    flex: 1;
+    max-width: 500px; /* Adjust based on the screenshot */
+  }
+  
+  /* Section heading styling */
+  .section-heading {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FF6200; /* Orange for "Fast, Friendly, and" */
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+  
+  .section-heading span {
+    color: #FFFFFF; /* White for "Satisfaction Guarantee" */
+  }
+  
+  /* Placeholder text styling */
+  .placeholder-text {
+    font-size: 16px;
+    color: #FFD700; /* Gold color for the placeholder text */
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+  
+  /* Feature styling */
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+  
+  .feature-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #FFFFFF; /* White icons */
+  }
+  
+  .feature-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF; /* White for the feature title */
+    margin-bottom: 10px;
+  }
+  
+  .feature-content p {
+    font-size: 14px;
+    color: #B0C4DE; /* Light gray for the description */
+    line-height: 1.5;
+  }
+  
+  

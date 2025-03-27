@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proxiserve Landing Page</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- FontAwesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D9H4TZ+7r7f3b+JcK4/tCz2z2Q5UViW4x4r3w60VDSHnYiOV6c1BZY8K5PZhWzlA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    /* ------------------ General Resets & Utilities ------------------ */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ------------------ Navigation Bar ------------------ */
+    nav.navbar {
+      background-color: #faf3dd; /* Light Cream */
+      /* Using large padding as described */
+      padding: 24px 160px;
+    }
+    nav .navbar-nav .nav-link {
+      color: #ee964b !important; /* Warm Orange */
+      font-weight: 600;
+      margin-right: 57px; /* gap between links */
+    }
+    nav .navbar-brand {
+      color: #ee964b !important; /* Warm Orange for brand */
+      font-weight: 700;
+    }
+
+    /* ------------------ Hero Section ------------------ */
+    .hero {
+      background-color: #0d3b66; /* Dark Navy Blue */
+      color: #fff;
+      border-bottom-right-radius: 32px;
+      border-bottom-left-radius: 32px;
+      position: relative;
+      padding: 60px 20px;
+      text-align: center;
+      /* for demonstration, limit max width and center */
+    }
+    .hero h1 {
+      color: #ee964b; /* Contrasting orange */
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero .subheading {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .hero .hero-features {
+      margin-bottom: 30px;
+    }
+    .hero .hero-features i {
+      color: #fff;
+      margin-right: 5px;
+    }
+    /* Search Bar */
+    .hero .search-bar {
+      max-width: 500px;
+      margin: 0 auto 40px auto;
+      display: flex;
+      align-items: center;
+    }
+    .hero .search-bar input {
+      border-radius: 8px 0 0 8px;
+      border: none;
+      padding: 10px;
+      flex: 1;
+    }
+    .hero .search-bar button {
+      background-color: #ee964b;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+    }
+    .hero .search-bar button:hover {
+      background-color: #d88342;
+    }
+    /* Category Icons Row */
+    .hero .category-icons {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hero .category-icons .icon-box {
+      background-color: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .hero .category-icons .icon-box:hover {
+      transform: scale(1.1);
+    }
+
+    /* ------------------ Services Section ------------------ */
+    .services {
+      background-color: #f8f9fa; /* a light gray to distinguish section */
+      padding: 60px 20px;
+      position: relative;
+      /* The design mentions large width & offset, but we'll keep it responsive */
+    }
+    .services h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .service-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin-bottom: 30px;
+      transition: transform 0.2s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-3px);
+    }
+    .service-card img {
+      width: 100%;
+      height: auto;
+    }
+    .service-card .card-body {
+      padding: 20px;
+    }
+    .service-card .heart-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .service-card .heart-button i {
+      color: #ee964b;
+    }
+    .service-card .badge-pro {
+      background-color: #ee964b;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 10px;
+    }
+    .service-card .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .service-card .experience {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .service-card .location {
+      color: #888;
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
+    .service-card .rating {
+      color: #f2c94c; /* golden yellow for stars */
+      margin-bottom: 5px;
+    }
+    .service-card .price {
+      font-weight: 700;
+      color: #333;
+    }
+    .service-card .price span {
+      font-size: 0.8rem;
+    }
+    .service-card .btn-contact {
+      background-color: #ee964b;
+      color: #fff;
+      border-radius: 6px;
+      border: none;
+      padding: 10px 20px;
+      transition: background-color 0.3s;
+    }
+    .service-card .btn-contact:hover {
+      background-color: #d88342;
+    }
+
+    /* ------------------ How Proxiserve Works Section ------------------ */
+    .how-works {
+      background-color: #ffffff;
+      padding: 60px 20px;
+    }
+    .how-works h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .how-works .step-number {
+      color: #ee964b;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    /* ------------------ Fast, Friendly Guarantee Section ------------------ */
+    .guarantee {
+      background-color: #1f3584; /* Dark Blue */
+      color: #fff;
+      padding: 64px 180px;
+      border-radius: 24px;
+      margin: 60px auto;
+      max-width: 1800px; /* adapt to responsive layout */
+    }
+    .guarantee h2 {
+      color: #ee964b; /* orange text for title */
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .guarantee .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .guarantee .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .guarantee .feature-icon {
+      background-color: #fff;
+      color: #1f3584;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    /* ------------------ Reviews Section ------------------ */
+    .reviews {
+      background-color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .reviews h2 {
+      margin-bottom: 20px;
+    }
+    .reviews .review-card {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+      margin-top: 40px;
+    }
+    .reviews .review-card .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+    .reviews .review-card .stars {
+      color: #f2c94c;
+    }
+
+    /* ------------------ Additional Banner Section ------------------ */
+    .additional-banner {
+      background-color: #1f3584; /* deep blue */
+      position: relative;
+      padding: 60px 20px;
+      color: #fff;
+      min-height: 655px;
+    }
+    .additional-banner h2 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #f5a623; /* orange */
+    }
+    .additional-banner h2 span {
+      color: #fff;
+      font-size: 36px;
+      margin-left: 5px;
+    }
+    .additional-banner .check-items {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+      font-size: 16px;
+      color: #a3bffa;
+    }
+    .additional-banner .check-items i {
+      color: #a3bffa;
+      margin-right: 5px;
+    }
+    /* Building images (semi-transparent) */
+    .building-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      opacity: 0.5;
+      object-fit: cover;
+      z-index: 1;
+    }
+    /* Person with phone image */
+    .person-with-phone {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      z-index: 2;
+    }
+
+    /* ------------------ Footer Section ------------------ */
+    footer {
+      background-color: #faf3dd;
+      padding: 40px 20px;
+      position: relative;
+      min-height: 200px; /* just for demo */
+    }
+    footer .footer-text {
+      color: #333;
+      font-size: 16px;
+    }
+    footer .footer-text span {
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* ------------------ Responsive Tweaks ------------------ */
+    @media (max-width: 768px) {
+      nav.navbar {
+        padding: 20px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero .subheading {
+        font-size: 1rem;
+      }
+      .guarantee {
+        padding: 40px 20px;
+      }
+      .guarantee .features {
+        grid-template-columns: 1fr;
+      }
+      .additional-banner h2 {
+        font-size: 1.5rem;
+      }
+      .additional-banner h2 span {
+        font-size: 1.2rem;
+      }
+      .building-bg {
+        display: none; /* hide building images on small screens */
+      }
+      .person-with-phone {
+        width: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====================== Navigation Bar ====================== -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">PROXISERVE</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon" style="color: #ee964b;"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="display: flex;">
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Our Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ====================== Hero Section ====================== -->
+<section class="hero">
+  <h1>Need improvement or repair? We can help!</h1>
+  <p class="subheading">Maintenances • Repairs • Improvements</p>
+
+  <!-- Features (Bullet Points) -->
+  <div class="hero-features">
+    <span><i class="fas fa-check"></i> Free Quotes</span>
+    <span class="ms-4"><i class="fas fa-check"></i> 100% Commitment-Free</span>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" placeholder="Find services" />
+    <button type="button"><i class="fas fa-search"></i></button>
+  </div>
+
+  <!-- Category Icons Row -->
+  <div class="category-icons">
+    <!-- 6 placeholder icons -->
+    <div class="icon-box"><i class="fas fa-home"></i></div>
+    <div class="icon-box"><i class="fas fa-wrench"></i></div>
+    <div class="icon-box"><i class="fas fa-paint-roller"></i></div>
+    <div class="icon-box"><i class="fas fa-plug"></i></div>
+    <div class="icon-box"><i class="fas fa-tools"></i></div>
+    <div class="icon-box"><i class="fas fa-hammer"></i></div>
+  </div>
+</section>
+
+<!-- ====================== Services Section ====================== -->
+<section class="services">
+  <h2>Our Professionals</h2>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <!-- Service Card 1 -->
+      <div class="col">
+        <div class="service-card position-relative">
+          <!-- Heart (like) button -->
+          <button class="heart-button">
+            <i class="fas fa-heart"></i>
+          </button>
+          <img
+            src="https://via.placeholder.com/600x400?text=Electrician+Photo"
+            alt="Sophie Bernard"
+            loading="lazy"
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              Sophie Bernard <span class="badge-pro">PRO</span>
+            </h5>
+            <p class="experience">Électricienne Qualifiée - 10 ans d’expérience</p>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> Lyon - Déplacement 15km</p>
+            <p class="rating">★★★★★ (89 avis)</p>
+            <p class="price">80€<span>/heure</span></p>
+            <button class="btn-contact mt-2">Contacter</button>
+          </div>
+        </div>
+      </div>
+      <!-- Service Card 2 -->
+      <div class="col">
+        <div class="service-card position-relative">
+          <button class="heart-button">
+            <i class="fas fa-heart"></i>
+          </button>
+          <img
+            src="https://via.placeholder.com/600x400?text=Painter+Photo"
+            alt="Marc Dubois"
+            loading="lazy"
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              Marc Dubois <span class="badge-pro">PRO</span>
+            </h5>
+            <p class="experience">Artisan Peintre - 20 ans d’expérience</p>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> Marseille - Déplacement 25km</p>
+            <p class="rating">★★★★★ (156 avis)</p>
+            <p class="price">65€<span>/heure</span></p>
+            <button class="btn-contact mt-2">Contacter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== How Proxiserve Works Section ====================== -->
+<section class="how-works">
+  <div class="container">
+    <h2>How Proxiserve works?</h2>
+    <div class="row align-items-center mt-5">
+      <!-- Left: Image of repairman -->
+      <div class="col-md-4 text-center mb-3">
+        <img
+          src="https://via.placeholder.com/300?text=Repairman"
+          alt="Repairman"
+          class="rounded-circle img-fluid"
+          loading="lazy"
+        />
+      </div>
+      <!-- Right: Steps -->
+      <div class="col-md-8">
+        <p><span class="step-number">1.</span><strong>Call anytime 24/7</strong> - We’re always here to help.</p>
+        <p><span class="step-number">2.</span><strong>Schedule Service</strong> - Book the date and time that suits you.</p>
+        <p><span class="step-number">3.</span><strong>Your request is completed</strong> - Our professionals handle the rest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== Fast, Friendly, Satisfaction Guarantee ====================== -->
+<section class="guarantee">
+  <h2>Fast, Friendly, and Satisfaction Guarantee</h2>
+  <p class="mt-3">
+    No matter how big or small your home improvement or repair needs are, Proxiserve
+    is here to offer a wide range of professional services.
+  </p>
+  <div class="features">
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      <div>
+        <h5>Satisfaction Guarantee</h5>
+        <p>We stand behind our services 100%.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fas fa-user-friends"></i>
+      </div>
+      <div>
+        <h5>Local Professionals</h5>
+        <p>Verified providers available nationwide.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+      <div>
+        <h5>Flexible Appointments</h5>
+        <p>Schedule when it suits you best.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fas fa-comments-dollar"></i>
+      </div>
+      <div>
+        <h5>Free Quotes</h5>
+        <p>No obligation to proceed.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fas fa-clock"></i>
+      </div>
+      <div>
+        <h5>Fast 24-Hour Service</h5>
+        <p>Quick response for urgent repairs.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fas fa-ban"></i>
+      </div>
+      <div>
+        <h5>100% Commitment-Free</h5>
+        <p>No pressure to proceed at any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== Reviews Section ====================== -->
+<section class="reviews">
+  <h2>Here our original reviews from trusted platform</h2>
+  <img
+    src="https://via.placeholder.com/150x50?text=Trustpilot+Logo"
+    alt="Trustpilot"
+    loading="lazy"
+  />
+  <div class="review-card">
+    <p class="mt-4">
+      "Roof repairs can be a real headache but Proxiserve makes it easy. Their
+      roofing team turned my wacky roof into a stockade! With their craftsmanship
+      and the best materials, my house is now ready to weather any storm."
+    </p>
+    <div class="d-flex align-items-center mt-3">
+      <img
+        src="https://via.placeholder.com/50"
+        alt="Kende Attila"
+        class="profile-pic"
+        loading="lazy"
+      />
+      <strong>Kende Attila</strong>
+    </div>
+    <div class="stars mt-2">★★★★★</div>
+  </div>
+</section>
+
+<!-- ====================== Additional Banner Section ====================== -->
+<section class="additional-banner">
+  <!-- Semi-transparent building images -->
+  <img
+    src="https://via.placeholder.com/800x600?text=Building+BG"
+    alt="Buildings"
+    class="building-bg"
+    loading="lazy"
+  />
+  <!-- Person with phone -->
+  <img
+    src="https://via.placeholder.com/300x600?text=Person+with+Phone"
+    alt="Person with Phone"
+    class="person-with-phone"
+    loading="lazy"
+  />
+
+  <div class="container position-relative" style="z-index: 3;">
+    <h2>
+      Already to improve or repair your home?
+      <span>Let’s ...........!</span>
+    </h2>
+    <div class="check-items">
+      <span><i class="fas fa-check"></i> Free Quotes</span>
+      <span><i class="fas fa-check"></i> 100% Commitment Free</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== Footer Section ====================== -->
+<footer>
+  <div class="container">
+    <p class="footer-text">
+      <span>PROXISERVE</span> your premier destination for top-notch home services.
+    </p>
+    <!-- Additional footer content can go here: links, contact info, etc. -->
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+></script>
+
+<!-- Optional JavaScript (e.g., for additional interactions) -->
+<script>
+  // Example: Alert on search
+  const searchButton = document.querySelector(".hero .search-bar button");
+  const searchInput = document.querySelector(".hero .search-bar input");
+
+  searchButton.addEventListener("click", () => {
+    alert("Searching for: " + searchInput.value);
+  });
+</script>
+</body>
+</html>
